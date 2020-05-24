@@ -100,7 +100,7 @@ class HTMLRenderer(BaseRenderer):
 
     def render_heading(self, token):
         if token.level == 1 or token.level == 2:
-            template = '<h{level} style="page-break-before: always">{inner}</h{level}>'
+            template = '<h{level}>{inner}</h{level}>'
         else:
             template = "<h{level}>{inner}</h{level}>"
         inner = self.render_inner(token)

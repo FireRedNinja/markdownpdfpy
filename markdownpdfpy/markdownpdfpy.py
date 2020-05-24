@@ -2,12 +2,16 @@
 import mistletoe
 from renderer.renderer import HTMLRenderer
 from weasyprint import HTML, CSS
-
+import mistune
 
 def markdownToHTML(fileName):
-    rendered = ""
+    rendered = None
     with open(f"{fileName}", "r") as f:
-        rendered = mistletoe.markdown(f, HTMLRenderer)
+        # rendered = mistletoe.markdown(f, HTMLRenderer)
+        rendered = mistune.html(f.read())
+    
+    import pdb; pdb.set_trace()
+    print(rendered)
 
     fileName = fileName.split(".md")[0]
 
